@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page1</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f9fafb 0%, #eef2ff 100%);
+
+        }
+
+        .tech-image {
+            transition: transform 0.3s ease;
+        }
+
+        .tech-image:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+
+<body class="font-sans min-h-screen">
+    <header class="container mx-auto px-6 py-6 md:px-8 lg:px-12">
+        <div class="flex justify-between items-center">
+            <div
+                class="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent logo">
+                TechWave</div>
+            <button class="md:hidden text-gray-600 link4">☰</button>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium link1">Solutions</a>
+                <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium link2">Pricing</a>
+                <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium link3">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12 md:py-20 lg:px-12 md:px-8">
+        <div class="flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight title">
+                    Build <span class="text-indigo-600">Modern</span> Web Experiences
+                </h1>
+                <p class="text-lg text-gray-600 mb-8 max-w-lg substitle">
+                    Harness the power of cutting-edge web technologies with our
+                    <span class="font-semibold text-indigo-600 substitle1">HTML5</span>,
+                    <span class="font-semibold text-indigo-600 substitle2">Tailwind CSS</span>, and
+                    <span class="font-semibold text-indigo-600 substitle3">JavaScript</span> stack.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 btns">
+                    <button
+                        class="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition-all shadow-md hover:shadow-lg">
+                        Get Started
+                    </button>
+                    <button
+                        class="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-50 transition-all">
+                        Learn More
+
+                    </button>
+                </div>
+            </div>
+
+            <div class="md:w-1/2 w-1/1 tech-image IMAGE">
+                <img src="https://cdn.pixabay.com/photo/2021/08/04/13/06/software-developer-6521720_1280.jpg"
+                    alt="Modern web development" class="w-full rounded-xl shadow-xl border-8 border-white">
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const tl = gsap.timeline({ defaults: { duration: 1, ease: "power2.out" } });
+
+        tl.from(".logo", { y: -50, opacity: 0 })
+            .from([".link1", ".link2", ".link3", ".link4"], {
+                y: -30,
+                opacity: 0,
+                stagger: 0.15
+            }, "-=0.5")
+
+            .from(".title", { x: -100, opacity: 0, ease: "power3.out" }, "-=0.3")
+            .from(".substitle", { y: 30, opacity: 0, ease: "power3.out" }, "-=0.4")
+
+            .from(".btns", {
+                x: -50,
+                opacity: 0,
+                ease: "back.out(1.7)"
+            }, "-=0.5")
+
+            .fromTo(".IMAGE", { scale: 1, opacity: 0 }, {
+                scale: 1.05,
+                opacity: 1,
+                duration: 1,
+                ease: "power2.out"
+            });
+
+
+    </script>
+</body>
+
+</html>
